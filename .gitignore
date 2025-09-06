@@ -1,0 +1,6 @@
+# Python environments
+.machine/
+# Compiled files
+__pycache__/
+*.pyc
+*.so
