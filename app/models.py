@@ -25,7 +25,6 @@ class Order(db.Model):
     total_price = db.Column(db.Float, nullable=False)
     status = db.Column(db.String(50), default="Pending")
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
     user = db.relationship("User", backref="orders")
 
 
