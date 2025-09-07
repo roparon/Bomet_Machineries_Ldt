@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from ..models import Product
-from ..extensions import db
+from app.models import Product
+from app.extensions import db
 
 admin = Blueprint("admin", __name__)
 
@@ -11,7 +11,6 @@ def add_product():
     if current_user.role != "admin":
         flash("Unauthorized!", "danger")
         return redirect(url_for("shop.home"))
-
     if request.method == "POST":
         name = request.form["name"]
         price = float(request.form["price"])
