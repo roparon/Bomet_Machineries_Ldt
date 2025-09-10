@@ -368,11 +368,8 @@
     }
 
     function addToCart(ev,id){ ev.preventDefault(); alert('Added to cart: '+id); }
-
-    // footer year
     document.getElementById('yr').innerText = new Date().getFullYear();
 
-    // keyboard escape closes modal
     window.addEventListener('keydown',(e)=>{ if(e.key==='Escape') modal.classList.remove('show') });
 
   </script>
