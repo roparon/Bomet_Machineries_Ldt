@@ -25,5 +25,4 @@ def add_product():
         db.session.commit()
         flash("Product added successfully!", "success")
         return redirect(url_for("shop.home"))
-
     return render_template("add_product.html")

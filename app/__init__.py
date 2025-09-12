@@ -22,7 +22,6 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-    # Register blueprints
     app.register_blueprint(auth, url_prefix="/auth")
     app.register_blueprint(shop, url_prefix="/")
     app.register_blueprint(admin, url_prefix="/admin")
