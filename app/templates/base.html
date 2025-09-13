@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bomet Machineries Ltd{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Top Bar -->
+    <header class="bg-green-700 text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="/" class="text-2xl font-bold">Bomet Machineries</a>
+            <form action="{{ url_for('shop.search') }}" method="GET" class="flex w-1/2">
+                <input type="text" name="query" placeholder="Search products, brands and categories..." 
+                       class="w-full px-4 py-2 rounded-l border-none outline-none text-gray-800">
+                <button class="bg-yellow-500 px-4 py-2 rounded-r text-black font-semibold">Search</button>
+            </form>
+            <div class="flex items-center space-x-4">
+                <a href="{{ url_for('auth.login') }}" class="hover:underline">Login</a>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
+                        {{ cart_count if cart_count else 0 }}
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Bar -->
+    <nav class="bg-white shadow">
+        <div class="container mx-auto flex space-x-6 p-3 overflow-x-auto">
+            <a href="#motors" class="hover:text-green-700">Motors</a>
+            <a href="#generators" class="hover:text-green-700">Generators</a>
+            <a href="#poshomills" class="hover:text-green-700">Posho Mills</a>
+            <a href="#chaffcutters" class="hover:text-green-700">Chaff Cutters</a>
+            <a href="#waterpumps" class="hover:text-green-700">Water Pumps</a>
+            <a href="#spareparts" class="hover:text-green-700">Spare Parts</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-700 text-white py-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; {{ current_year }} Bomet Machineries Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

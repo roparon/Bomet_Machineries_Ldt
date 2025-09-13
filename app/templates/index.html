@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Bomet Machineries{% endblock %}
+
+{% block content %}
+<h2 class="text-3xl font-bold mb-6 text-center">Shop By Category</h2>
+
+<!-- Loop Through Categories -->
+{% for category, category_products in categorized_products.items() %}
+<section id="{{ category }}" class="mb-12">
+    <div class="flex justify-between items-center mb-4">
+        <h3 class="text-2xl font-semibold capitalize">{{ category }}</h3>
+        <a href="{{ url_for('shop.category', category=category) }}" class="text-green-700 hover:underline">
+            View All →
+        </a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        {% for product in category_products %}
+        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition">
+            <a href="{{ url_for('shop.product_detail', product_id=product.id) }}">
+                <img src="{{ product.image }}" alt="{{ product.name }}" class="w-full h-40 object-cover">
+            </a>
+            <div class="p-4">
+                <h4 class="font-bold text-lg">{{ product.name }}</h4>
+                <p class="text-green-700 font-semibold mt-2">Ksh {{ product.price }}</p>
+                <form action="{{ url_for('shop.add_to_cart', product_id=product.id) }}" method="POST">
+                    <button class="bg-green-700 text-white px-4 py-2 mt-3 rounded hover:bg-green-800 w-full">
+                        Add to Cart
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+{% endblock %}
