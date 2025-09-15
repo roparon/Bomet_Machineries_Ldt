@@ -4,8 +4,6 @@
 
 {% block content %}
 <h2 class="text-3xl font-bold mb-6 text-center">Shop By Category</h2>
-
-<!-- Loop Through Categories -->
 {% for category, category_products in categorized_products.items() %}
 <section id="{{ category }}" class="mb-12">
     <div class="flex justify-between items-center mb-4">
