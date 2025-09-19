@@ -11,10 +11,6 @@
             <a href="{{ url_for('shop.product_detail', product_id=product.id) }}">
                 <img src="{{ product.image }}" alt="{{ product.name }}" class="w-full h-40 object-cover">
             </a>
-            <div class="p-4">
-                <h4 class="font-bold text-lg">{{ product.name }}</h4>
-                <p class="text-green-700 font-semibold mt-2">Ksh {{ product.price }}</p>
-            </div>
 
         </div>
         {% endfor %}
