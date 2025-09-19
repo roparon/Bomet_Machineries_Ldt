@@ -2,10 +2,7 @@
 
 {% block title %}Home - Bomet Machineries{% endblock %}
 {% block content %}
-<h2 class="text-3xl font-bold mb-6 text-center">Shop By Category</h2>
 {% for category, category_products in categorized_products.items() %}
-<section id="{{ category }}" class="mb-12">
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         {% for product in category_products %}
         {% endfor %}
     </div>
