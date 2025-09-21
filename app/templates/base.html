@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bomet Machineries Ltd{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <nav class="bg-white shadow">
+        <div class="container mx-auto flex space-x-6 p-3 overflow-x-auto">
+            <a href="#motors" class="hover:text-green-700">Motors</a>
+            <a href="#generators" class="hover:text-green-700">Generators</a>
+            <a href="#poshomills" class="hover:text-green-700">Posho Mills</a>
+            <a href="#chaffcutters" class="hover:text-green-700">Chaff Cutters</a>
+            <a href="#waterpumps" class="hover:text-green-700">Water Pumps</a>
+            <a href="#spareparts" class="hover:text-green-700">Spare Parts</a>
+        </div>
+    </nav>
+    <main class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-green-700 text-white py-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; {{ current_year }} Bomet Machineries Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
