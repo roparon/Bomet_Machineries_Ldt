@@ -8,14 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
     <nav class="bg-white shadow">
-        <div class="container mx-auto flex space-x-6 p-3 overflow-x-auto">
-            <a href="#motors" class="hover:text-green-700">Motors</a>
-            <a href="#generators" class="hover:text-green-700">Generators</a>
-            <a href="#poshomills" class="hover:text-green-700">Posho Mills</a>
-            <a href="#chaffcutters" class="hover:text-green-700">Chaff Cutters</a>
-            <a href="#waterpumps" class="hover:text-green-700">Water Pumps</a>
-            <a href="#spareparts" class="hover:text-green-700">Spare Parts</a>
-        </div>
+
     </nav>
     <main class="container mx-auto p-6">
         {% block content %}{% endblock %}
