@@ -14,14 +14,7 @@ products = [
 
 @shop.route("/")
 def home():
-    # Group products by category
-    categorized_products = {}
-    for product in products:
-        category = product["category"]
-        if category not in categorized_products:
-            categorized_products[category] = []
-        categorized_products[category].append(product)
-
+    # G
     # Pass categorized_products to template
     return render_template(
         "index.html",
