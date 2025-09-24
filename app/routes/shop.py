@@ -16,11 +16,7 @@ products = [
 def home():
     # G
     # Pass categorized_products to template
-    return render_template(
-        "index.html",
-        categorized_products=categorized_products,
-        current_year=datetime.now().year,
-        cart_count=len(session.get("cart", []))  # Optional cart support
+    return.get("cart", []))  # Optional cart support
     )
 
 
