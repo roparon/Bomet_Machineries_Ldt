@@ -3,6 +3,19 @@ from flask_login import UserMixin
 from datetime import datetime
 
 
+class User(db.Model, UserMixin):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150), nullable=False)
+    email = db.Column(db.String(150), unique=True, nullable=False, index=True)
+    password = db.Column(db.String(200), nullable=False)
+    role = db.Column(db.String(50), default="customer")  # "customer", "admin"
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    orders = db.relationship("Order", back_populates="user", lazy=True)
+
+    def __repr__(self):
+        return f"<User {self.email}>"
 
 
 
