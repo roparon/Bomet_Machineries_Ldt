@@ -19,10 +19,6 @@ class User(db.Model, UserMixin):
 
 
 
-\
-
-
-
 class Product(db.Model):
     __tablename__ = "products"
 
