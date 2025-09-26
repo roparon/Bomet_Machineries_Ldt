@@ -19,6 +19,8 @@ class User(db.Model, UserMixin):
 
 
 
+\
+
 
 
 class Product(db.Model):
