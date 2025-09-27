@@ -17,7 +17,6 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"<User {self.email}>"
 
-
 class Product(db.Model):
     __tablename__ = "products"
 
