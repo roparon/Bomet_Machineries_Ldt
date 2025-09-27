@@ -18,7 +18,6 @@ class User(db.Model, UserMixin):
         return f"<User {self.email}>"
 
 
-
 class Product(db.Model):
     __tablename__ = "products"
 
