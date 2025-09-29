@@ -43,6 +43,7 @@ def search():
         cart_count=len(session.get("cart", []))
     )
 
+
 @shop.route("/category/<category>")
 def category(category):
     # Filter products by the given category
