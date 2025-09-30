@@ -34,6 +34,7 @@ def home():
 @shop.route("/search")
 def search():
     query = request.args.get("query", "").lower()
+    # Filter products by search query
     search_results = [p for p in Product if query in p["name"].lower()]
     return render_template(
         "index.html",
@@ -44,6 +45,7 @@ def search():
 
 @shop.route("/category/<category>")
 def category(category):
+    # Filter products by the given category
     filtered_products = [p for p in products if p["category"] == category]
 
     return render_template(
@@ -66,7 +68,9 @@ def product_detail(product_id):
         current_year=datetime.now().year,
         cart_count=len(session.get("cart", []))
     )
+# -----------------------
 # ROUTE TO ADD PRODUCT TO CART
+# -----------------------
 @shop.route("/add_to_cart/<int:product_id>", methods=["POST"])
 def add_to_cart(product_id):
     # Get the cart from session or create a new one
@@ -83,6 +87,7 @@ def add_to_cart(product_id):
 
     return redirect(url_for("shop.view_cart"))  # Redirect to the cart page
 
+# -----------------------
 # CART VIEW
 # -----------------------
 @shop.route("/cart")
