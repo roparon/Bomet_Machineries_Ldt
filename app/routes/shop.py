@@ -66,9 +66,7 @@ def product_detail(product_id):
         current_year=datetime.now().year,
         cart_count=len(session.get("cart", []))
     )
-# -----------------------
 # ROUTE TO ADD PRODUCT TO CART
-# -----------------------
 @shop.route("/add_to_cart/<int:product_id>", methods=["POST"])
 def add_to_cart(product_id):
     # Get the cart from session or create a new one
@@ -85,9 +83,7 @@ def add_to_cart(product_id):
 
     return redirect(url_for("shop.view_cart"))  # Redirect to the cart page
 
-# -----------------------
 # CART VIEW
-# -----------------------
 @shop.route("/cart")
 def view_cart():
     cart = session.get("cart", [])
