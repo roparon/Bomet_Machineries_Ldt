@@ -60,7 +60,7 @@ def product_detail(product_id):
     product = next((p for p in products if p["id"] == product_id), None)
     
     if not product:
-        return render_template("404.html"), 404  
+        return render_template("404.html"), 404  # Handle missing product gracefully
 
     return render_template(
         "product_detail.html",
@@ -68,7 +68,9 @@ def product_detail(product_id):
         current_year=datetime.now().year,
         cart_count=len(session.get("cart", []))
     )
-
+# -----------------------
+# ROUTE TO ADD PRODUCT TO CART
+# -----------------------
 @shop.route("/add_to_cart/<int:product_id>", methods=["POST"])
 def add_to_cart(product_id):
     # Get the cart from session or create a new one
@@ -82,7 +84,9 @@ def add_to_cart(product_id):
     cart.append(product)
     session["cart"] = cart
 
-    return redirect(url_for("shop.view_cart")) 
+    return redirect(url_for("shop.view_cart"))  # Redirect to the cart page
+
+# CART VIEW
 @shop.route("/cart")
 def view_cart():
     cart = session.get("cart", [])
