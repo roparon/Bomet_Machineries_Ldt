@@ -84,9 +84,7 @@ def add_to_cart(product_id):
     cart.append(product)
     session["cart"] = cart
 
-    return redirect(url_for("shop.view_cart"))  # Redirect to the cart page
-
-# CART VIEW
+    return redirect(url_for("shop.view_cart")) 
 @shop.route("/cart")
 def view_cart():
     cart = session.get("cart", [])
