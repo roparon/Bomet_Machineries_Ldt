@@ -60,7 +60,7 @@ def product_detail(product_id):
     product = next((p for p in products if p["id"] == product_id), None)
     
     if not product:
-        return render_template("404.html"), 404  # Handle missing product gracefully
+        return render_template("404.html"), 404  
 
     return render_template(
         "product_detail.html",
