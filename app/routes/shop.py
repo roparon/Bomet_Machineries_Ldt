@@ -74,7 +74,6 @@ def add_to_cart(product_id):
     # Get the cart from session or create a new one
     cart = session.get("cart", [])
 
-    # Find the product
     product = next((p for p in products if p["id"] == product_id), None)
     if not product:
         return "Product not found", 404
