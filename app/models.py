@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False, index=True)
     password = db.Column(db.String(200), nullable=False)
-    role = db.Column(db.String(50), default="customer")  # "customer", "admin"
+    role = db.Column(db.String(50), default="customer")
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     orders = db.relationship("Order", back_populates="user", lazy=True)
 
@@ -42,7 +42,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     total_price = db.Column(db.Float, nullable=False)
-    status = db.Column(db.String(50), default="Pending")  # Pending, Paid, Shipped, Delivered
+    status = db.Column(db.String(50), default="Pending")
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user = db.relationship("User", back_populates="orders")
     order_items = db.relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
