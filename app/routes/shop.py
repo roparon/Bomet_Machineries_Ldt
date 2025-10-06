@@ -45,6 +45,7 @@ def search():
 
 @shop.route("/category/<category>")
 def category(category):
+    # Filter products by the given category
     filtered_products = [p for p in products if p["category"] == category]
 
     return render_template(
