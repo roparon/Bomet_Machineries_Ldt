@@ -35,6 +35,7 @@ class Product(db.Model):
 
 
 
+
 class Order(db.Model):
     __tablename__ = "orders"
 
