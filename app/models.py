@@ -33,6 +33,7 @@ class Product(db.Model):
     def __repr__(self):
         return f"<Product {self.name} - {self.price}>"
 
+
 class Order(db.Model):
     __tablename__ = "orders"
 
