@@ -34,6 +34,7 @@ class Product(db.Model):
         return f"<Product {self.name} - {self.price}>"
 
 
+
 class Order(db.Model):
     __tablename__ = "orders"
 
