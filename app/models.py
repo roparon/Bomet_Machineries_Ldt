@@ -42,7 +42,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     total_price = db.Column(db.Float, nullable=False)
-    status = db.Column(db.String(50), default="Pending")  # Pending, Paid, Shipped, Delivered
+    status = db.Column(db.String(50), default="Pending") 
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user = db.relationship("User", back_populates="orders")
     order_items = db.relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
