@@ -46,6 +46,7 @@ class Order(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user = db.relationship("User", back_populates="orders")
     order_items = db.relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
+
     def __repr__(self):
         return f"<Order {self.id} by User {self.user_id}>"
 
