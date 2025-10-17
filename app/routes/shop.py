@@ -61,7 +61,6 @@ def product_detail(product_id):
     
     if not product:
         return render_template("404.html"), 404  
-
     return render_template(
         "product_detail.html",
         product=product,
