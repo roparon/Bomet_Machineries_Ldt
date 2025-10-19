@@ -75,7 +75,6 @@ def add_to_cart(product_id):
         return "Product not found", 404
     cart.append(product)
     session["cart"] = cart
-
     return redirect(url_for("shop.view_cart")) 
 @shop.route("/cart")
 def view_cart():
