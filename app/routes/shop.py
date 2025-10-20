@@ -7,7 +7,6 @@ shop = Blueprint("shop", __name__)
 
 products = [
     {"id": 1, "name": "Electric Motor 5HP", "category": "motors", "price": 15000, "image": "/static/images/motor1.jpg"},
-    {"id": 2, "name": "Honda Generator 3kVA", "category": "generators", "price": 45000, "image": "/static/images/generator1.jpg"},
     {"id": 4, "name": "Water Pump 2HP", "category": "water_pumps", "price": 12000, "image": "/static/images/pump1.jpg"},
 ]
 
