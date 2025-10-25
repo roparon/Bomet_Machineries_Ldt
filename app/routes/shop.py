@@ -13,7 +13,6 @@ products = [
 
 @shop.route("/")
 def home():
-    # Group products by category
     categorized_products = {}
     for product in products:
         category = product["category"]
