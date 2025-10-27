@@ -19,7 +19,6 @@ def home():
             categorized_products[category] = []
         categorized_products[category].append(product)
 
-    # Pass categorized_products to template
     return render_template(
         "index.html",
         categorized_products=categorized_products,
