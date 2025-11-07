@@ -25,7 +25,6 @@ def home():
         "index.html",
         categorized_products=categorized_products,
         current_year=datetime.now().year,
-        cart_count=len(session.get("cart", []))  # Optional cart support
     )
 
 
