@@ -12,6 +12,21 @@ products = [
     {"id": 4, "name": "Water Pump 2HP", "category": "water_pumps", "price": 12000, "image": "/static/images/pump1.jpg"},
 ]
 
+@shop.route("/")
+def home():
+    categorized_products = {}
+    for product in products:
+        category = product["category"]
+        if category not in categorized_products:
+            categorized_products[category] = []
+        categorized_products[category].append(product)
+
+    return render_template(
+        "index.html",
+        categorized_products=categorized_products,
+        current_year=datetime.now().year,
+        cart_count=len(session.get("cart", []))  # Optional cart support
+    )
 
 
 @shop.route("/search")
