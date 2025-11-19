@@ -20,11 +20,13 @@ def home():
         if category not in categorized_products:
             categorized_products[category] = []
         categorized_products[category].append(product)
+
+    # Pass categorized_products to template
     return render_template(
         "index.html",
         categorized_products=categorized_products,
         current_year=datetime.now().year,
-        cart_count=len(session.get("cart", []))
+        cart_count=len(session.get("cart", []))  # Optional cart support
     )
 
 
