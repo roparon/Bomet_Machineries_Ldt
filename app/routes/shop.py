@@ -32,7 +32,6 @@ def home():
 @shop.route("/search")
 def search():
     query = request.args.get("query", "").lower()
-    # Filter products by search query
     search_results = [p for p in Product if query in p["name"].lower()]
     return render_template(
         "index.html",
