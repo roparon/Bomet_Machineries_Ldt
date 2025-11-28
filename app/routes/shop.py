@@ -52,6 +52,7 @@ def category(category):
     )
 @shop.route("/product/<int:product_id>")
 def product_detail(product_id):
+    # Find the product by its ID
     product = next((p for p in products if p["id"] == product_id), None)
     
     if not product:
