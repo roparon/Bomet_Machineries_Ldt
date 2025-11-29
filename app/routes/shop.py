@@ -52,7 +52,7 @@ def category(category):
 @shop.route("/product/<int:product_id>")
 def product_detail(product_id):
     product = next((p for p in products if p["id"] == product_id), None)
-
+    
     if not product:
         return render_template("404.html"), 404  
     return render_template(
