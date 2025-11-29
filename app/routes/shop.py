@@ -11,7 +11,6 @@ products = [
     {"id": 3, "name": "Posho Mill Grade 1", "category": "posho_mills", "price": 80000, "image": "/static/images/posho1.jpg"},
     {"id": 4, "name": "Water Pump 2HP", "category": "water_pumps", "price": 12000, "image": "/static/images/pump1.jpg"},
 ]
-
 @shop.route("/")
 def home():
     categorized_products = {}
