@@ -39,7 +39,6 @@ def search():
         current_year=datetime.now().year,
         cart_count=len(session.get("cart", []))
     )
-
 @shop.route("/category/<category>")
 def category(category):
     filtered_products = [p for p in products if p["category"] == category]
