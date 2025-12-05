@@ -34,6 +34,7 @@ def login():
             login_user(user)
             return redirect(url_for("shop.home"))
         flash("Invalid credentials", "danger")
+
     return render_template("login.html")
 
 @auth.route("/logout")
