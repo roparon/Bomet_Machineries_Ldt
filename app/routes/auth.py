@@ -36,7 +36,6 @@ def login():
         flash("Invalid credentials", "danger")
 
 
-
     return render_template("login.html")
 
 @auth.route("/logout")
