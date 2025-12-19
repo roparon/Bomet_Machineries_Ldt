@@ -26,6 +26,6 @@ def create_app():
     app.register_blueprint(admin, url_prefix="/admin")
 
     with app.app_context():
-        db.create_all() 
+        db.create_all()  # Ensure tables are created
 
     return app
