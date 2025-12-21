@@ -14,7 +14,6 @@ def register():
         email = request.form["email"]
         password = request.form["password"]
         hashed_pw = generate_password_hash(password, method="sha256")
-
         user = User(name=name, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
