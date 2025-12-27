@@ -29,4 +29,3 @@ def create_app():
         db.create_all()  # Ensure tables are created
 
     return app
-    
