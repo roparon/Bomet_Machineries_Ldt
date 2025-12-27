@@ -29,4 +29,4 @@ def create_app():
         db.create_all()  # Ensure tables are created
 
     return app
-    https://bazuuwifi.centipidtechnologies.com/buy/packages?ip=172.31.2.155&router=35875&mac=E4%3AB3%3A18%3A7D%3AD9%3AEE
+    
