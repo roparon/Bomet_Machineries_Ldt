@@ -4,9 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app.models import User
 from app.extensions import db
 
-
 auth = Blueprint("auth", __name__)
-
 @auth.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -17,7 +15,6 @@ def register():
         user = User(name=name, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
-
         flash("Account created! Please login.", "success")
         return redirect(url_for("auth.login"))
     return render_template("register.html")
@@ -27,13 +24,11 @@ def login():
     if request.method == "POST":
         email = request.form["email"]
         password = request.form["password"]
-
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password, password):
             login_user(user)
             return redirect(url_for("shop.home"))
         flash("Invalid credentials", "danger")
-
     return render_template("login.html")
 
 @auth.route("/logout")

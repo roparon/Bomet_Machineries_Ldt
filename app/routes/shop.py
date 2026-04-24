@@ -4,7 +4,6 @@ from datetime import datetime
 
 
 shop = Blueprint("shop", __name__)
-
 products = [
     {"id": 1, "name": "Electric Motor 5HP", "category": "motors", "price": 15000, "image": "/static/images/motor1.jpg"},
     {"id": 2, "name": "Honda Generator 3kVA", "category": "generators", "price": 45000, "image": "/static/images/generator1.jpg"},
@@ -32,7 +31,8 @@ def home():
 @shop.route("/search")
 def search():
     query = request.args.get("query", "").lower()
-    search_results = [p for p in Product if query in p["name"].lower()]
+    # Use the in-memory products list for searching
+    search_results = [p for p in products if query in p["name"].lower()]
     return render_template(
         "index.html",
         categorized_products={"Search Results": search_results},
